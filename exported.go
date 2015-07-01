@@ -61,10 +61,15 @@ func WithField(key string, value interface{}) *Entry {
 // fields to it. This is simply a helper for `WithField`, invoking it
 // once for each field.
 //
-// Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal
+// Note that it doesn't log until you call Trace, Debug, Print, Info, Warn, Fatal
 // or Panic on the Entry it returns.
 func WithFields(fields Fields) *Entry {
 	return std.WithFields(fields)
+}
+
+// Trace logs a message at level Trace on the standard logger.
+func Trace(args ...interface{}) {
+	std.Trace(args...)
 }
 
 // Debug logs a message at level Debug on the standard logger.
@@ -107,6 +112,11 @@ func Fatal(args ...interface{}) {
 	std.Fatal(args...)
 }
 
+// Tracef logs a message at level Trace on the standard logger.
+func Tracef(format string, args ...interface{}) {
+	std.Tracef(format, args...)
+}
+
 // Debugf logs a message at level Debug on the standard logger.
 func Debugf(format string, args ...interface{}) {
 	std.Debugf(format, args...)
@@ -145,6 +155,11 @@ func Panicf(format string, args ...interface{}) {
 // Fatalf logs a message at level Fatal on the standard logger.
 func Fatalf(format string, args ...interface{}) {
 	std.Fatalf(format, args...)
+}
+
+// Traceln logs a message at level Trace on the standard logger.
+func Traceln(args ...interface{}) {
+	std.Traceln(args...)
 }
 
 // Debugln logs a message at level Debug on the standard logger.
